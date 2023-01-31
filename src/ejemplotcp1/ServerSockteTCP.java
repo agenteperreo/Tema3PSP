@@ -46,8 +46,13 @@ public class ServerSockteTCP {
                 OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
                 BufferedWriter bw = new BufferedWriter(osw);
 
+                bw.write("Servidor le pide un numero positivo al cliente");
+                bw.newLine();
+                bw.flush();
+
+                System.out.println("Mensaje enviado por el cliente: " + br.readLine());
+
                 while(!positivo) {
-                    System.out.println("Mensaje enviado por el cliente: " + br.readLine());
                     if (Integer.parseInt(br.readLine()) < 0) {
                         System.out.println("Servidor envía al cliente el mensaje");
                         bw.write("El numero es negativo");

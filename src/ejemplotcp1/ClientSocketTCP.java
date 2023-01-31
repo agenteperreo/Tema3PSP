@@ -4,10 +4,13 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 public class ClientSocketTCP {
 
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
 
         try {
             // 1 - Crear un socket de tipo cliente indicando IP y puerto del servidor
@@ -23,14 +26,11 @@ public class ClientSocketTCP {
             // Le envío mensaje al servidor
             OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
             BufferedWriter bw = new BufferedWriter(osw);
-            bw.write("Buenas tardes");
-            bw.newLine();
-            bw.flush();
-
             // Leo mensajes que me envía el servidor
             InputStreamReader isr = new InputStreamReader(is, "UTF-8");
             BufferedReader br = new BufferedReader(isr);
             System.out.println("El servidor me envia el mensajer: "+br.readLine());
+
 
             // 4 - Cerrar flujos de lectura y escritura
             bw.close();
